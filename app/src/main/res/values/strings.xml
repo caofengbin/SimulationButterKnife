@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SimulationButterKnife</string>
+    <string-array name="main_view_string_array">
+        <item>使用反射机制实现ButterKnife的效果</item>
+        <item>使用apt实现ButterKnife的效果</item>
+    </string-array>
 </resources>

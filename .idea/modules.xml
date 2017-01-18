@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SimulationButterKnife.iml" filepath="$PROJECT_DIR$/SimulationButterKnife.iml" />
+      <module fileurl="file://$PROJECT_DIR$/annotation-comprocesser/annotation-comprocesser.iml" filepath="$PROJECT_DIR$/annotation-comprocesser/annotation-comprocesser.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
