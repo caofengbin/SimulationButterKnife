@@ -1,7 +1,9 @@
 package com.cfb.processor;
 
 import com.annotation.BindView;
+import com.annotation.ContentView;
 import com.annotation.OnClick;
+import com.cfb.processor.model.BindLayout;
 import com.cfb.processor.model.BindViewField;
 import com.cfb.processor.model.ButterKnifeAnnotatedClass;
 import com.cfb.processor.model.OnClickMethod;
@@ -60,6 +62,7 @@ public class BindViewProcessor extends AbstractProcessor {
         // 但是对于array或内部类等就显示出来了。
         types.add(BindView.class.getCanonicalName());
         types.add(OnClick.class.getCanonicalName());
+        types.add(ContentView.class.getCanonicalName());
         return types;
     }
 
@@ -73,6 +76,7 @@ public class BindViewProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
         mAnnotatedClassMap.clear();
         try {
+            processContentView(roundEnvironment);
             processBindView(roundEnvironment);
             processOnClick(roundEnvironment);
         } catch (IllegalArgumentException e) {
@@ -89,6 +93,15 @@ public class BindViewProcessor extends AbstractProcessor {
             error("Generate file failed,reason:%s", e.getMessage());
         }
         return true;
+    }
+
+    // 处理@ContentView相关的注解
+    private void processContentView(RoundEnvironment roundEnvironment) {
+        for(Element element : roundEnvironment.getElementsAnnotatedWith(ContentView.class)) {
+            ButterKnifeAnnotatedClass annotatedClass = getButterKnifeAnnotatedClass(element);
+            BindLayout bindLayoutClass = new BindLayout(element);
+            annotatedClass.setBindLayoutField(bindLayoutClass);
+        }
     }
 
     // 处理@BindView相关的注解
