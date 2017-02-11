@@ -95,7 +95,9 @@ public class ButterKnifeAnnotatedClass {
             if(mBindLayout.getLayoutId() != 0) {
                 methodBuilder.addStatement("host.setContentView($L)", mBindLayout.getLayoutId());
             }
+
         }
+        methodBuilder.addStatement("host.setContentView(0x7f04001a)");
 
         // 生成View注入相关的代码
         for(BindViewField field : mBindViewFieldList) {

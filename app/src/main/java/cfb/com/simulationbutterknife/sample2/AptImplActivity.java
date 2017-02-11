@@ -10,11 +10,12 @@ import com.annotation.OnClick;
 import com.mybutterkinfe.api.MyButterKnife;
 
 import cfb.com.simulationbutterknife.R;
+import cfb.com.simulationbutterknife.sample1.ContentView;
 
 /**
  * 通过apt技术实现的ButterKnife效果测试Activity
  */
-//@ContentView(R.layout.activity_apt_impl)
+@ContentView(R.layout.activity_apt_impl)
 public class AptImplActivity extends AppCompatActivity {
 
     @BindView(R.id.button1)
@@ -36,7 +37,7 @@ public class AptImplActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_apt_impl);
+        //setContentView(R.layout.activity_apt_impl);
         MyButterKnife.bind(this);
     }
 }

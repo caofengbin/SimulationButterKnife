@@ -34,6 +34,8 @@ import javax.tools.Diagnostic;
 @AutoService(Processor.class)
 public class BindViewProcessor extends AbstractProcessor {
 
+    private static final String TAG = "apt";
+
     // 文件相关辅助类
     private Filer mFiler;
 
@@ -76,8 +78,11 @@ public class BindViewProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
         mAnnotatedClassMap.clear();
         try {
+            // (1)处理注解@ContentView
             processContentView(roundEnvironment);
+            // (2)处理注解@BindView
             processBindView(roundEnvironment);
+            // (3)处理注解@OnClick
             processOnClick(roundEnvironment);
         } catch (IllegalArgumentException e) {
             error(e.getMessage());
@@ -86,6 +91,7 @@ public class BindViewProcessor extends AbstractProcessor {
         try {
             for(ButterKnifeAnnotatedClass annotatedClass : mAnnotatedClassMap.values()) {
                 info("generating file for %s", annotatedClass.getFullClassName());
+                // (4)生成代码
                 annotatedClass.generateFinder().writeTo(mFiler);
             }
         } catch (Exception e) {
@@ -137,10 +143,12 @@ public class BindViewProcessor extends AbstractProcessor {
     // 写错误日志
     private void error(String msg, Object... args) {
         mMessager.printMessage(Diagnostic.Kind.ERROR, String.format(msg, args));
+        System.out.println(TAG + String.format(msg, args));
     }
 
     // 打印日志
     private void info(String msg, Object... args) {
         mMessager.printMessage(Diagnostic.Kind.NOTE, String.format(msg, args));
+        System.out.println(TAG + String.format(msg, args));
     }
 }

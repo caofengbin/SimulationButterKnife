@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import cfb.com.simulationbutterknife.sample1.ReflectImplActivity;
+import cfb.com.simulationbutterknife.sample2.AptImplActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
