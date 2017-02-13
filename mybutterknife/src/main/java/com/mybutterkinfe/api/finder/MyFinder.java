@@ -8,7 +8,7 @@ import android.view.View;
  * Created by fengbincao on 2017/2/4.
  */
 
-public class ActivityFinder implements Finder {
+public class MyFinder implements Finder {
 
     @Override
     public Context getContext(Object source) {

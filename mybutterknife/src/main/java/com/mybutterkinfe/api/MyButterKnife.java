@@ -2,7 +2,7 @@ package com.mybutterkinfe.api;
 
 import android.app.Activity;
 
-import com.mybutterkinfe.api.finder.ActivityFinder;
+import com.mybutterkinfe.api.finder.MyFinder;
 import com.mybutterkinfe.api.finder.Finder;
 
 import java.util.HashMap;
@@ -14,12 +14,12 @@ import java.util.Map;
 
 public class MyButterKnife {
 
-    private static final ActivityFinder ACTIVITY_FINDER = new ActivityFinder();
+    private static final MyFinder MY_FINDER = new MyFinder();
 
     private static Map<String, Injector> FINDER_MAP = new HashMap<>();
 
     public static void bind(Activity activity) {
-        bind(activity, activity, ACTIVITY_FINDER);
+        bind(activity, activity, MY_FINDER);
     }
 
     public static void bind(Object host, Object source, Finder finder) {
