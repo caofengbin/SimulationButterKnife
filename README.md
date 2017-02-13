@@ -5,3 +5,5 @@
 > * @ContentView：注入布局文件
 > * @BindView：注入控件
 > * @OnClick：注入简单的事件监听
+
+主要涉及技术包括：
