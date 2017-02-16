@@ -1,4 +1,12 @@
 # SimulationButterKnife
+
+本项目对应的两篇博客分析：
+
+[ButterKnife的使用与原理(1)](https://caofengbin.github.io/2017/01/20/inside-learn-butter-knife/)
+
+[ButterKnife的使用与原理(2)](https://caofengbin.github.io/2017/02/16/inside-learn-butter-knife2/)
+
+
 **分别通过运行时处理自定义注解和编译时处理自定义注解的方式**，来模拟实现ButterKnife的效果。
 简单的实现了:
 
@@ -6,7 +14,7 @@
 > * @BindView：注入控件
 > * @OnClick：注入简单的事件监听
 
-通过自己实现的注解处理器，可以实现如下的使用效果：
+这三个注解类型，通过自己实现的注解处理器，可以实现如下的使用效果：
 
 ``` java
 @ContentView(R.layout.activity_apt_impl)
@@ -46,9 +54,15 @@ public class AptImplActivity extends AppCompatActivity {
 比较有价值的参考链接：
 
 [1.Android中使用注解](https://www.zhangningning.com.cn/blog/Android/android_rentention.html)
+
 [2.生成Java源文件 (javawriter, javapoet, codemodel)](http://www.jianshu.com/p/ae0fa4761dd8)
+
 [3.javapoet的Github地址](https://github.com/square/javapoet)
+
 [4.annotationprocessing101](http://hannesdorfmann.com/annotation-processing/annotationprocessing101)
+
 [5.javapoet——让你从重复无聊的代码中解放出来](http://www.jianshu.com/p/95f12f72f69a)
+
 [6.Compilation Overview](http://openjdk.java.net/groups/compiler/doc/compilation-overview/index.html)
+
 [7.深入理解 ButterKnife，让你的程序学会写代码](https://zhuanlan.zhihu.com/p/22248846)
